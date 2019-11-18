@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mvctest
+spec:
+  replicas: 1
+  strategy:
+   type: RollingUpdate
+   rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 24%
+  selector:
+    matchLabels:
+      app: mvctest
+  template:
+    metadata:
+      labels:
+        app: mvctest
+    spec:
+      containers:
+      - name: mvctest-container
+        image: rcavinash123/aspnet:v1.0.0
+        ports:
+          - containerPort: 5010
+            protocol: TCP
+        resources:
+          requests:
+            memory: 512Mi
+          limits:
+            memory: 1Gi
+      nodeSelector:
+        nodeos: windows
+          
