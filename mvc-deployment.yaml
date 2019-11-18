@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: mvctest-container
-        image: rcavinash123/aspnet:v1.0.0
+        image: rcavinash123/dotnet:v1.0.0
         ports:
           - containerPort: 5010
             protocol: TCP
