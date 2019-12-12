@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: mvctest-container
-        image: rcavinash123/cubusmvctest:v1.0.0
+        image: rcavinash123/cubusmvctest:1.0.0
         readinessProbe:
           httpGet:
             path: /health
