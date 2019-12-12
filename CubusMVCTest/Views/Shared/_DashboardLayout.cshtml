@@ -1,0 +1,41 @@
+@model CubusMVCTest.Models.DashboardModel
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CubusMVCTest</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header class="header">              
+        <div class='containerNewUI'>
+            <div class='containerBlock'>
+                <a href='#' id='headerLink_New' title='CUBUS Logo' class='logo'>
+                    <img id='Logo' class='primarylogo' src='/images/logo.png' alt='CUBUS Logo' style='border-width:0px;'>
+                </a>
+                <div style="float:right;">                    
+                    <a href="@Url.Action("LogOut", "Dashboard",Model)" id='headerLink_New' title='Logout' >
+                        <img id='Logout' src="/images/logout.svg" style="width:25px;height:25px;margin-top:50%;margin-right:10px;">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <span style="margin-left:5%;">Welcome @Html.DisplayFor(model => Model.AccountsData.AccountResult.firstName) @Html.DisplayFor(model => Model.AccountsData.AccountResult.lastName)</span>        
+    </header>    
+    <main role="main">
+        @RenderBody()
+    </main>
+
+    <footer class="footer">
+        <div>
+           Version - @Html.DisplayFor(model => Model.Version) &copy; 2019 - Cubus Solutions Inc
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

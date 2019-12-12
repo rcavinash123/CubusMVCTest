@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Administrator\\Documents\\Projects\\DotNet\\CubusMVCTest\\CubusMVCTest.csproj": {}
+    "C:\\Users\\Administrator\\Documents\\Projects\\WebsiteMVC\\CubusMVCTest\\CubusMVCTest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Administrator\\Documents\\Projects\\DotNet\\CubusMVCTest\\CubusMVCTest.csproj": {
+    "C:\\Users\\Administrator\\Documents\\Projects\\WebsiteMVC\\CubusMVCTest\\CubusMVCTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Administrator\\Documents\\Projects\\DotNet\\CubusMVCTest\\CubusMVCTest.csproj",
+        "projectUniqueName": "C:\\Users\\Administrator\\Documents\\Projects\\WebsiteMVC\\CubusMVCTest\\CubusMVCTest.csproj",
         "projectName": "CubusMVCTest",
-        "projectPath": "C:\\Users\\Administrator\\Documents\\Projects\\DotNet\\CubusMVCTest\\CubusMVCTest.csproj",
+        "projectPath": "C:\\Users\\Administrator\\Documents\\Projects\\WebsiteMVC\\CubusMVCTest\\CubusMVCTest.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Administrator\\Documents\\Projects\\DotNet\\CubusMVCTest\\obj\\",
+        "outputPath": "C:\\Users\\Administrator\\Documents\\Projects\\WebsiteMVC\\CubusMVCTest\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -35,6 +35,20 @@
       },
       "frameworks": {
         "netcoreapp3.0": {
+          "dependencies": {
+            "StackExchange.Redis": {
+              "target": "Package",
+              "version": "[2.0.601, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            },
+            "ZooKeeper.Net": {
+              "target": "Package",
+              "version": "[3.4.6.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

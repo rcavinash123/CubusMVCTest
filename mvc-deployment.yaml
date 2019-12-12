@@ -19,9 +19,13 @@ spec:
     spec:
       containers:
       - name: mvctest-container
-        image: rcavinash123/dotnet:v1.0.0
+        image: rcavinash123/cubusmvctest:v1.0.0
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 80              
         ports:
-          - containerPort: 5010
+          - containerPort: 80
             protocol: TCP
         resources:
           requests:

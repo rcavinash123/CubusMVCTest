@@ -1,0 +1,97 @@
+@{
+    ViewData["Title"] = "Dashboard";
+}
+@{
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+@model CubusMVCTest.Models.DashboardModel
+<div id='AccountContainer' style='box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);min-height:208px;margin-left: 5%;margin-top:2%;width:50%;float:left;margin-right:2%;padding-top: 5%;padding:10px;max-width:400px;'>
+    <div id='AccountTitle' style='margin-left: -10px;margin-right: -10px;height: 40px;margin-bottom: 10px;padding: 0px;border-bottom: 3px solid #ec8102;'>
+        <h2 style='padding-left: 10px;'>Accounts</h2>
+    </div>
+    <div id='Accounts' style=''>        
+         @if (Model!= null && Model.Error==null && Model.AccountsData!=null && Model.AccountsData.AccountResult!=null) 
+        {
+            foreach (var item in Model.AccountsData.AccountResult.UserAccounts.AccountInfo) 
+            {
+                <div id="AcctInfo" style="height:30px;">
+                <div style='float:left'>
+                    @if(item.acctId == 1)
+                    {
+                         @Html.Raw("<span style='font-weight: bold;'>Savings</span>")
+                    } 
+                    @if(item.acctId == 2)
+                    {
+                        @Html.Raw("<span style='font-weight: bold;'>Checking</span>")
+                    }
+                    @if(item.acctId == 3)
+                    {
+                        @Html.Raw("<span style='font-weight: bold;'>Loan</span>")
+                    }
+                </div>
+                <div style='float:right'>
+                    @Html.Raw("<span style='font-weight: bold;'>A:</span>")
+                    @Html.DisplayFor(modelItem => item.availBal)
+                    @Html.Raw("</br>")
+                    @Html.Raw("<span style='font-weight: bold;'>C:</span>")                                               
+                    @Html.DisplayFor(modelItem => item.currBal)
+                </div>                  
+                </div>
+                @Html.Raw("</br>") 
+            }
+        }
+        @if (Model!= null && Model.Error!= null)
+        {           
+            @Html.DisplayFor(modelItem => Model.Error)
+        }    
+        @if (Model== null ||  Model.AccountsData==null ||  Model.AccountsData.AccountResult==null)
+        {           
+           @Html.Raw("Unable to get account information")
+        }  
+    </div>
+</div>
+<div id='Profile' style='box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);min-height:208px;margin-left: 5%;margin-top:2%;width:50%;float:left;margin-right:2%;padding-top: 5%;padding:10px;max-width:400px;'>
+    <div id='ProfileTitle' style='margin-left: -10px;margin-right: -10px;height: 40px;margin-bottom: 10px;padding: 0px;border-bottom: 3px solid #1d8204;'>
+        <h2 style='padding-left: 10px;'>Profile Information</h2>
+    </div>
+    <div id='ProfileData' style=''>
+         @if (Model!= null && Model.Error==null && Model.AccountsData!=null && Model.AccountsData.AccountResult!=null) 
+        {
+            <div id="FirstName" style="height:30px;">
+                <div style='float:left'>
+                     @Html.Raw("First Name")
+                </div>
+                <div style='float:right'>
+                     @Html.DisplayFor(model => Model.AccountsData.AccountResult.firstName)
+                </div>
+            </div>
+             @Html.Raw("</br>") 
+            <div id="LastName" style="height:30px;">
+                <div style='float:left'>
+                     @Html.Raw("Last Name")
+                </div>
+                <div style='float:right'>
+                     @Html.DisplayFor(model => Model.AccountsData.AccountResult.lastName)
+                </div>
+            </div>
+             @Html.Raw("</br>") 
+            <div id="EmailAddr" style="height:30px;">
+                <div style='float:left'>
+                     @Html.Raw("Email Address")
+                </div>
+                <div style='float:right'>
+                     @Html.DisplayFor(model => Model.AccountsData.AccountResult.emailAddr)
+                </div>
+            </div>            
+        }
+        @if (Model!= null && Model.Error!= null)
+        {           
+            @Html.DisplayFor(modelItem => Model.Error)
+        }    
+        @if (Model== null || Model.AccountsData==null ||  Model.AccountsData.AccountResult==null )
+        {           
+           @Html.Raw("Unable to get account information")
+        }  
+    </div>
+</div>
