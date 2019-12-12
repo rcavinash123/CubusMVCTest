@@ -19,11 +19,7 @@ spec:
     spec:
       containers:
       - name: mvctest-container
-        image: rcavinash123/cubusmvctest:1.0.1
-        readinessProbe:
-          httpGet:
-            path: /health
-            port: 80              
+        image: rcavinash123/cubusmvctest:1.0.1                    
         ports:
           - containerPort: 80
             protocol: TCP
@@ -33,5 +29,5 @@ spec:
           limits:
             memory: 1Gi
       nodeSelector:
-        nodeos: windows
+        nodeweb: yes
           
